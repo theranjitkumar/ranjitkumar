@@ -10,6 +10,7 @@ router.get('/', function (req, res, next) {
   next();
 }, function () {
   email.syaHello();
+  email.dispatchMail();
 });
 
 module.exports = router;
