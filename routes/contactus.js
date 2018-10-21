@@ -3,11 +3,13 @@ var email = require('../helpers/emailDispatchers');
 
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('contactus', { title: 'Contact Us' }, function(){
-    email.syaHello();
+router.get('/', function (req, res, next) {
+  res.render('contactus', {
+    title: 'Contact Us'
   });
+  next();
+}, function () {
+  email.syaHello();
 });
 
 module.exports = router;
