@@ -4,11 +4,12 @@ var nodemailer = require('nodemailer');
 var EMD = {};
 module.exports = EMD;
 
+
 EMD.syaHello = function() {
   console.log('hello dude...');
 }
 
-EMD.dispatchMail = function(userEmail, tempPassword){
+EMD.dispatchMail = function(){
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -19,13 +20,13 @@ EMD.dispatchMail = function(userEmail, tempPassword){
   
   var mailOptions = {
     from: 'nodedevelopertest@gmail.com',
-    to: userEmail,
+    to: 'web.ranjitkumar@gmail.com',
     subject: 'Test Mail',
     html: `
     Hi, 
     <br> 
     <p>Your are registerd as new member in abhishek networking </p>
-    <p> Your temprary password is ${tempPassword} </p>
+    <p> Your temprary password is  </p>
     <p> <a href="#"> Click Me </a> for reset your password and update your profile </p>
     <br>
     <p> <strong> Best Regards & Good Luck </strong> </p>
