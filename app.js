@@ -3,10 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/ranjit');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var contactusRouter = require('./routes/contactus');
+var indexController = require('./controllers/indexController');
+var usersController = require('./controllers/usersController');
+var contactusController = require('./controllers/contactusController');
+var blogController = require('./controllers/blogController');
 
 var app = express();
 
@@ -20,9 +23,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/contactus', contactusRouter);
+app.use('/', indexController);
+app.use('/users', usersController);
+app.use('/contactus', contactusController);
+app.use('/blog', blogController);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
