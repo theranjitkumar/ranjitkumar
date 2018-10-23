@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const BlogPost = mongoose.model('BlogPost', {
+const Post = mongoose.model('BlogPost', {
     bpId: {
         type: Number,
     },
@@ -13,4 +13,4 @@ const BlogPost = mongoose.model('BlogPost', {
 
 });
 
-module.exports = BlogPost;
+module.exports = Post;
