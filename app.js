@@ -4,8 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const config = require('./config/dbConfig.js');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/ranjit');
+mongoose.connect(config.db,{useNewUrlParser: true}).then(() => {
+  console.log("Successfully connected to the database");    
+}).catch(err => {
+  console.log('Could not connect to the database. Exiting now...', err);
+  process.exit();
+});
 // controllers...
 var indexController = require('./controllers/indexController');
 var usersController = require('./controllers/usersController');
