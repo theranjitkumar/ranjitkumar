@@ -11,6 +11,7 @@ var indexController = require('./controllers/indexController');
 var usersController = require('./controllers/usersController');
 var contactusController = require('./controllers/contactusController');
 var blogController = require('./controllers/blogController');
+var restApisController = require('./controllers/rest-apisController');
 // rest controllers...
 var blogRestController = require('./restControllers/blogController');
 
@@ -32,6 +33,8 @@ app.use('/', indexController);
 app.use('/users', usersController);
 app.use('/contactus', contactusController);
 app.use('/blog', blogController);
+app.use('/rest-apis', restApisController);
+
 // rest....
 app.use('/rest/blog', blogRestController);
 
