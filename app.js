@@ -20,6 +20,7 @@ var blogController = require('./controllers/blogController');
 var restApisController = require('./controllers/rest-apisController');
 // rest controllers...
 var blogRestController = require('./restControllers/blogController');
+var profileRestController = require('./restControllers/profileController');
 
 var app = express();
 
@@ -43,6 +44,7 @@ app.use('/rest-apis', restApisController);
 
 // rest....
 app.use('/rest/blog', blogRestController);
+app.use('/rest/profile', profileRestController);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

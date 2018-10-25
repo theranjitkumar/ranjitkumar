@@ -1,25 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const Post = require('../models/blog');
+const Post = require('../models/blog.model');
 
-router.get('/', function (req, res, next) {
-  Post.find().then((data) => {
-    console.log(data);
-    res.send(data);
-  });
-});
-router.get('/:id', function (req, res, next) {
-  Post.findById(req.params.id).then((data) => {
-    console.log(data);
-    res.send(data);
-  });
-});
-router.delete('/:id', function (req, res, next) {
-  Post.findByIdAndDelete(req.params.id).then((data) => {
-    console.log('Deleted Successfully...');
-    res.send('Deleted Successfully...');
-  });
-});
 router.post('/', function (req, res, next) {
   const post = new Post({
     bpId: 5,
@@ -42,6 +24,25 @@ router.put('/:id', function (req, res, next) {
   }).then(() => {
     console.log('Updated successfully...');
     res.send('Updated successfully...');
+  });
+});
+
+router.get('/', function (req, res, next) {
+  Post.find().then((data) => {
+    console.log(data);
+    res.send(data);
+  });
+});
+router.get('/:id', function (req, res, next) {
+  Post.findById(req.params.id).then((data) => {
+    console.log(data);
+    res.send(data);
+  });
+});
+router.delete('/:id', function (req, res, next) {
+  Post.findByIdAndDelete(req.params.id).then((data) => {
+    console.log('Deleted Successfully...');
+    res.send('Deleted Successfully...');
   });
 });
 
